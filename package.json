@@ -10,7 +10,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "cy:run": "npx cypress run --env url=http://localhost:5000/pdf,file_name=teste_lixo,email=pdf_testmail@yopmail.com --reporter mochawesome"
+    "cy:run": "npx cypress run --env url=http://localhost:5000/pdf,file_name=teste_lixo,email=pdf_testmail@yopmail.com,yopmail=https://yopmail.com/ --reporter mochawesome"
   },
   "dependencies": {
     "axios": "^1.13.2",
