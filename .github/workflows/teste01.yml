@@ -2,6 +2,17 @@ name: Cypress tests
 
 on:
   workflow_dispatch:
+    inputs: 
+      email:
+        description: 'Email usado para receber o PDF da Api'
+        required: true
+        default: pdf_testmail@yopmail.com
+        type: string
+      pdf_name:
+        description: 'Nome do arquivo pdf gerado'
+        required: true
+        default: teste_pdf
+        type: string
 
 jobs:
     test:
@@ -30,7 +41,7 @@ jobs:
         - name: Run Cypress tests 
           run: |
             echo "Running Cypress tests od docker container"
-            npm run cy:run
+            npx cypress run --env url=http://localhost:5000/pdf,file_name=${{  inputs.pdf_name  }},email=${{  input.email  }} --reporter mochawesome
 
         - name: Uploading artifact
           uses: actions/upload-artifact@v4
