@@ -18,7 +18,7 @@ it('Upload De Imagens', () => {
     })
 })
 it('valida o email na resposta da API', () =>{
-    cy.visit(Cipress.env('yopmail'));
+    cy.visit(Cypress.env('yopmail'));
     cy.get('body').then(($body) => {
         const $btn = $body.find('[aria-label="Consent"]');
        if ($btn.length && $btn.is(':visible')) {
