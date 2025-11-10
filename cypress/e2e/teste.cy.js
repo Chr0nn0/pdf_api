@@ -42,7 +42,7 @@ it('valida o email na resposta da API', () =>{
     cy.on('window:confirm' , () => {
       return true
     })
-    cy.contains('Ask user').click();
+    cy.contains('Are you sure').click();
     cy.get('[id="message"]')
       .should('be.visible');
     });
