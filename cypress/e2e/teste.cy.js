@@ -34,3 +34,17 @@ it('valida o email na resposta da API', () =>{
         .should('be.visible');
     });
   });
+  after(() => {
+    // ✅ roda uma única vez após TODOS os testes desta suíte
+    cy.log('Depois de todos os testes');
+    cy.get('div[class="wminboxheader"] > div > button[class="md but textu f24"]:not([id="delsel"])').click();
+    cy.get('[id="undodel"]').click();
+    cy.on('window:confirm' , () => {
+      return true
+    })
+    cy.contains('Ask user').click();
+    cy.get('[id="message"]')
+      .should('be.visible');
+    });
+
+    // Exemplo: limpar dados, fechar sessão, deletar fixtures, etc.
